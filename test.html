@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/videoControl.js"></script>
+		<style>
+			.buttonYes {
+				width: 101px;
+				height: 50px;
+				background-image: url(img/know_before.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -329px;
+				top: 410px;
+				visibility: hidden;
+			}
+			
+			.buttonNo {
+				width: 101px;
+				height: 50px;
+				background-image: url(img/noknow_before.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 171px;
+				top: 410px;
+				visibility: hidden;
+			}
+			
+			.buttonPlayback {
+				width: 55px;
+				height: 100px;
+				background-image: url(img/playback.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -549px;
+				top: 260px;
+				visibility: hidden;
+			}
+			
+			.buttonContinue {
+				width: 57px;
+				height: 100px;
+				background-image: url(img/continue.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 491px;
+				top: 260px;
+				visibility: hidden;
+			}
+			
+			.buttonTest {
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -383.5px;
+				top: 32.5px;
+			}
+			
+			.buttonOne {
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -142.5px;
+				top: 32.5px;
+			}
+			
+			.buttonTwo {
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 132.5px;
+				top: 32.5px;
+			}
+			
+			.buttonThree {
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 368.5px;
+				top: 32.5px;
+			}
+			
+			.buttonYes:active {
+				background-image: url(img/know_after.png);
+			}
+			
+			.buttonNo:active {
+				background-image: url(img/noknow_after.png);
+			}
+			
+			.buttonPlayback:active {
+				background-image: url(img/playback_after.png);
+			}
+			
+			.buttonContinue:active {
+				background-image: url(img/continue_after.png);
+			}
+			
+			.buttonWrongCon{
+				width: 57px;
+				height: 100px;
+				background-image: url(img/wrongCon.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 491px;
+				top: 260px;
+				visibility: hidden;
+			}
+			
+			.buttonWrongCon:active{
+				background-image: url(img/wrongCon_after.png);
+			}
+			
+			.video {
+				width: 1200px;
+			}
+			
+			.button_B1 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_1.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 173px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.button_B2 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_2.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -467px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.button_B3 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_1.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -307px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.button_B4 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_3.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 333px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.button_B5 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_4.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 13px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.button_B6 {
+				width: 134px;
+				height: 50px;
+				background-image: url(img/Blank_5.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -147px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.NextQ {
+				width: 135px;
+				height: 50px;
+				background-image: url(img/nextQ.png);
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 400px;
+				top: 610px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank1_before {
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 270px;
+			}
+			
+			
+			.Q1_square_1 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 270px;
+				visibility: hidden;
+			}
+			
+			.Q1_text_1{
+				
+				border-style: noen;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 400px;
+				top: 510px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank2_before
+			{
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -380px;
+				top: 310px;
+			}
+			
+			.Q1_square_2 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -380px;
+				top: 310px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank3_before
+			{
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 360px;
+			}
+			
+			.Q1_square_3 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 360px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank4_before
+			{
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 400px;
+			}
+			
+			.Q1_square_4 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -480px;
+				top: 400px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank5_before
+			{
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -350px;
+				top: 440px;
+			}
+			
+			.Q1_square_5 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -350px;
+				top: 440px;
+				visibility: hidden;
+			}
+			
+			.Q1Blank6_before
+			{
+				width: 135px;
+				height: 50px;
+				border-style: none;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -200px;
+				top: 440px;
+			}
+			
+			.Q1_square_6 {
+				width: 98px;
+				height: 50px;
+				background-image: url(img/square.png);
+				border-style: noen;
+				border: transparent;
+				background-color: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: -200px;
+				top: 440px;
+				visibility: hidden;
+			}
+			
+			.wrongPlayback{
+				width: 100px;
+				height: 100px;
+				background-image: url(img/wrong_before.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				visibility: hidden;
+			}
+			
+			.buttonFinish {
+				width: 100px;
+				height: 50px;
+				background-image: url(img/finish.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 0px;
+				top: 500px;
+				visibility: hidden;
+			}
+			.buttonFinish:active{
+				background-image: url(img/finish_after.png);
+			}
+			
+			.buttonPractice {
+				width: 100px;
+				height: 50px;
+				background-image: url(img/practice.png);
+				background-color: transparent;
+				border-style: none;
+				border: transparent;
+				z-index: 9999;
+				position: absolute;
+				left: 50%;
+				margin-left: 200px;
+				top: 500px;
+				visibility: hidden;
+			}
+			.buttonPractice:active{
+				background-image: url(img/practice_after.png);
+			}
+			
+			
+		</style>
+	</head>
+
+	<body bgcolor="#4682B4">
+
+		<center>
+			<!--<button onclick="playPause()">播放/暂停</button>
+			<button onclick="next()">下一个</button>
+			<button onclick="time()">返回时间</button>
+			<button onclick="front()">向前十五秒</button>
+			<button onclick="back()">向后十五秒</button>
+			<button onclick="Q1true()">是否知道强化物-是</button>
+			<button onclick="Q1false()">是否知道强化物-否</button>
+			<button onclick="Q2true()">是否知道ABC-是</button>
+			<button onclick="Q2false()">是否知道ABC-否</button>
+			<button onclick="Q3true()">是否知道DTT-是</button>
+			<button onclick="Q3false()">是否知道DTT-否</button>
+			<button onclick="sessionTest()">试探回合</button>
+			<button onclick="sessionOne()">回合一</button>
+			<button onclick="sessionTwo()">回合二</button>
+			<button onclick="sessionThree()">回合三</button>-->
+
+			<!--第一个问题选择“了解”-->
+			<button id="firstYes" class="buttonYes" onclick="Q1true()"></button>
+
+			<!--第一个问题选择“不了解”-->
+			<button id="firstNo" class="buttonNo" onclick="Q1false()"></button>
+
+			<!--第二个问题选择“了解”-->
+			<button id="secondYes" class="buttonYes" onclick="Q2true()"></button>
+
+			<!--第二个问题选择“不了解”-->
+			<button id="secondNo" class="buttonNo" onclick="Q2false()"></button>
+
+			<!--第三个问题选择“了解”-->
+			<button id="thirdYes" class="buttonYes" onclick="Q3true()"></button>
+
+			<!--第三个问题选择“不了解”-->
+			<button id="thirdNo" class="buttonNo" onclick="Q3false()"></button>
+
+			<!--第四个问题选择“了解”-->
+			<button id="fouthYes" class="buttonYes" onclick="Q4true()"></button>
+
+			<!--第四个问题选择“不了解”-->
+			<button id="fouthNo" class="buttonNo" onclick="Q4false()"></button>
+			
+			
+			<!--强化物知识区选择“继续”-->
+			<button id="reinfoNext" class="buttonContinue" onclick="reinfoNextTo()"></button>
+			
+			<!--正强化物知识区选择“继续”-->
+			<button id="positiveNext" class="buttonContinue" onclick="positiveNextTo()"></button>
+			
+			<!--区分强化知识区选择“继续”-->
+			<button id="classNext" class="buttonContinue" onclick="classNextTo()"></button>
+			
+			
+
+			<!--试探回合结束选择“回放”-->
+			<button id="testPlayback" class="buttonPlayback" onclick="backTest()"></button>
+
+			<!--试探回合结束选择“继续”-->
+			<button id="testContinue" class="buttonContinue" onclick="conTest()"></button>
+
+			<!--回合一结束选择“回放”-->
+			<button id="onePlayback" class="buttonPlayback" onclick="backOne()"></button>
+
+			<!--回合一结束选择“继续”-->
+			<button id="oneContinue" class="buttonContinue" onclick="conOne()"></button>
+
+			<!--回合二结束选择“回放”-->
+			<button id="twoPlayback" class="buttonPlayback" onclick="backTwo()"></button>
+
+			<!--回合二结束选择“继续”-->
+			<button id="twoContinue" class="buttonContinue" onclick="conTwo()"></button>
+
+			<!--回合三结束选择“回放”-->
+			<button id="threePlayback" class="buttonPlayback" onclick="backThree()"></button>
+
+			<!--回合三结束选择“继续”-->
+			<button id="threeContinue" class="buttonContinue" onclick="conThree()"></button>
+			
+			<!--错误示范1回放-->
+			<button id="wrong1" class="wrongPlayback" style="position: absolute;left: 50%;margin-left: -250px;top: 80px;" onclick="wrong1Back()"></button>
+			
+			<!--错误示范2回放-->
+			<button id="wrong2" class="wrongPlayback" style="position: absolute;left: 50%;margin-left: 150px;top: 80px;" onclick="wrong2Back()"></button>
+			
+			<!--错误示范3回放-->
+			<button id="wrong3" class="wrongPlayback" style="position: absolute;left: 50%;margin-left: -250px;top: 80px;" onclick="wrong3Back()"></button>
+			
+			<!--错误示范4回放-->
+			<button id="wrong4" class="wrongPlayback" style="position: absolute;left: 50%;margin-left: 150px;top: 80px;" onclick="wrong4Back()"></button>
+			
+			<!--1 2错误示范回放next-->
+			<button id="wrong12next" class="buttonWrongCon" onclick="conWrong12()"></button>
+			
+			<!--3 4错误示范回放next-->
+			<button id="wrong34next" class="buttonWrongCon" onclick="conWrong34()"></button>
+			
+			
+			<!--结束课程-->
+			<button id="finish" class="buttonFinish" onclick="fini()"></button>
+			<!--进入跟练-->
+			<button id="practice" class="buttonPractice" onclick="prac()"></button>
+
+			
+
+			<img id="point1" src="img/point.PNG" style="width:20px;height:20px;position: absolute; left:50%;margin-left:-383.5px;top:32.5px; visibility:hidden"></img>
+
+			<img id="point2" src="img/point.PNG" style="width:20px;height:20px;position: absolute; left:50%;margin-left:-142.5px;top:32.5px; visibility:hidden"></img>
+
+			<img id="point3" src="img/point.PNG" style="width:20px;height:20px;position: absolute; left:50%;margin-left:132.5px;top:32.5px; visibility:hidden"></img>
+
+			<img id="point4" src="img/point.PNG" style="width:20px;height:20px;position: absolute; left: 50%;margin-left: 368.5px;top:32.5px; visibility:hidden"></img>
+
+			<!--课后练习-填空-->
+			<button id="B_1" class="button_B1"></button>
+			<button id="B_2" class="button_B2"></button>
+			<button id="B_3" class="button_B3"></button>
+			<button id="B_4" class="button_B4"></button>
+			<button id="B_5" class="button_B5"></button>
+			<button id="B_6" class="button_B6"></button>
+			<button id="nextQ" class="NextQ" onclick="nextQuestion()"></button>
+
+			
+			
+			<video id="video" controls class="video">
+				<source src="video/movie.mp4" type="video/mp4" controls="controls">
+			</video>
+
+			
+			<!--<textarea id="text"></textarea>-->
+		</center>
+
+		<script>
+			var videoTime = document.getElementById("video");
+			
+			//时间戳
+			var firstQstart=220.4;//第一个问题开始
+			var firstQend=222.11;//第一个问题结束
+				
+			var firstQyesTo=227.6;//试探回合开始时间点 也是第一个问题选择【了解】跳转到的区域
+				
+			var reinfoStart=222.5;//强化物知识区开始
+			var reinfoEnd=227.1;//强化物知识区结束
+				
+			var testSessionStart=227.6;//试探回合开始时间点 也是第一个问题选择【了解】跳转到的区域
+			var testSessionEnd=240.1;//试探回合结束的时间点
+			var oneSessionStart=240.5;//回合一开始的时间点
+			var oneSessionEnd=258.4;//回合一结束的时间点
+			var twoSessionStart=258.9;//回合二开始的时间点
+			var twoSessionEnd=268.2;//回合二结束的时间点
+			var threeSessionStart=268.5;//回合三开始的时间点
+			var threeSessionEnd=288.2;//回合三结束的时间点
+			
+			var attentionStart=289;//注意事项开始
+			
+			var secondQstart=306.5;//第二个问题开始
+			var secondQend=308.1;//第二个问题结束
+			
+			var positiveStart=310;//正强化物知识区开始
+			var positiveEnd=314.3;//正强化物知识区结束
+			
+			var secondQyesTo=315//第二个问题选择【了解】跳转到的区域
+			
+			var thirdQstart=385.5;//第三个问题开始
+			var thirdQend=386;//第三个问题结束
+			
+			var classStart=387.5;//区分强化知识区开始
+			var classEnd=392.25;//区分强化知识区结束
+			
+			var thirdQyesTo=393//第三个问题选择【了解】跳转到的区域
+			
+			var wrong12end=417.5;//错误示范1、2播放完
+			var wrong34start=418;//错误示范3、4开始播放
+			var wrong34end=441;//错误示范3、4播放完
+			var wrong1backstart=441.5;//错误示范1开始回放
+			var wrong1backend=449;//错误示范1结束回放
+			var wrong2backstart=451.6;//错误示范2开始回放
+			var wrong2backend=458;//错误示范2结束回放
+			var wrong3backstart=461.6;//错误示范3开始回放
+			var wrong3backend=470;//错误示范3结束回放
+			var wrong4backstart=474;//错误示范4开始回放
+			var wrong4backend=480.7;//错误示范4结束回放
+			
+			var end=482.5;//结束课程
+
+			//在正式版本中需要对前后时间调整做限制（不能直接跳过第一个问题）
+
+			//快退
+			function forward() {
+
+			}
+
+			//快进
+			function backward() {
+
+			}
+
+			videoTime.addEventListener("timeupdate", function() {
+				var timeDisplay;
+				timeDisplay = videoTime.currentTime;
+			
+
+				//第一个问题的时间节点(通过秒数限定进行暂停)
+				if(timeDisplay >= firstQstart && timeDisplay <= firstQend) {
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//yes按钮
+					var firstYesBtn = document.getElementById("firstYes");
+					firstYesBtn.style.visibility = "visible";
+					//no按钮
+					var firstNoBtn = document.getElementById("firstNo");
+					firstNoBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//yes按钮
+					var firstYesBtn = document.getElementById("firstYes");
+					firstYesBtn.style.visibility = "hidden";
+					//no按钮
+					var firstNoBtn = document.getElementById("firstNo");
+					firstNoBtn.style.visibility = "hidden";
+				}
+				
+				//强化物知识区的时间节点(通过秒数限定进行暂停)
+				if(timeDisplay >= reinfoStart && timeDisplay <= reinfoEnd) {
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//next按钮
+					var reinfoNextBtn = document.getElementById("reinfoNext");
+					reinfoNextBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许next按钮出现
+					var reinfoNextBtn = document.getElementById("reinfoNext");
+					reinfoNextBtn.style.visibility = "hidden";
+				}
+				
+				//第二个问题的时间节点
+				if(timeDisplay >= secondQstart && timeDisplay <= secondQend) {
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//yes按钮
+					var secondYesBtn = document.getElementById("secondYes");
+					secondYesBtn.style.visibility = "visible";
+					//no按钮
+					var secondNoBtn = document.getElementById("secondNo");
+					secondNoBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//yes按钮
+					var secondYesBtn = document.getElementById("secondYes");
+					secondYesBtn.style.visibility = "hidden";
+					//no按钮
+					var secondNoBtn = document.getElementById("secondNo");
+					secondNoBtn.style.visibility = "hidden";
+				}
+				
+				//正强化知识区的时间节点(通过秒数限定进行暂停)
+				if(timeDisplay >= positiveStart && timeDisplay <= positiveEnd) {
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//next按钮
+					var positiveNextBtn = document.getElementById("positiveNext");
+					positiveNextBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许next按钮出现
+					var positiveNextBtn = document.getElementById("positiveNext");
+					positiveNextBtn.style.visibility = "hidden";
+				}
+
+				if(timeDisplay >= thirdQstart && timeDisplay <= thirdQend)
+				//第三个问题的时间节点
+				{
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//yes按钮
+					var thirdYesBtn = document.getElementById("thirdYes");
+					thirdYesBtn.style.visibility = "visible";
+					//no按钮
+					var thirdNoBtn = document.getElementById("thirdNo");
+					thirdNoBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//yes按钮
+					var thirdYesBtn = document.getElementById("thirdYes");
+					thirdYesBtn.style.visibility = "hidden";
+					//no按钮
+					var thirdNoBtn = document.getElementById("thirdNo");
+					thirdNoBtn.style.visibility = "hidden";
+				}
+				
+				//区分强化知识区的时间节点(通过秒数限定进行暂停)
+				if(timeDisplay >= classStart && timeDisplay <= classEnd) {
+					//首先暂停视频
+					videoTime.pause();
+					//添加按钮
+					//next按钮
+					var classNextBtn = document.getElementById("classNext");
+					classNextBtn.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许next按钮出现
+					var classNextBtn = document.getElementById("classNext");
+					classNextBtn.style.visibility = "hidden";
+				}
+				
+				if(timeDisplay >= testSessionStart && timeDisplay <= testSessionEnd)
+				//试探回合的时间段
+				{
+					//添加<>按钮
+					//<按钮
+					var testpb = document.getElementById("testPlayback");
+					testpb.style.visibility = "visible";
+					//>按钮
+					var testcon = document.getElementById("testContinue");
+					testcon.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//<按钮
+					var testpb = document.getElementById("testPlayback");
+					testpb.style.visibility = "hidden";
+					//>按钮
+					var testcon = document.getElementById("testContinue");
+					testcon.style.visibility = "hidden";
+				}
+				
+				
+				if(timeDisplay >= oneSessionStart && timeDisplay <= oneSessionEnd)
+				//回合一的时间段
+				{
+					//添加<>按钮
+					//<按钮
+					var onepb = document.getElementById("onePlayback");
+					onepb.style.visibility = "visible";
+					//>按钮
+					var onecon = document.getElementById("oneContinue");
+					onecon.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//<按钮
+					var onepb = document.getElementById("onePlayback");
+					onepb.style.visibility = "hidden";
+					//>按钮
+					var onecon = document.getElementById("oneContinue");
+					onecon.style.visibility = "hidden";
+				}
+				
+				if(timeDisplay >= twoSessionStart && timeDisplay <= twoSessionEnd)
+				//回合二的时间段
+				{
+					//添加<>按钮
+					//<按钮
+					var twopb = document.getElementById("twoPlayback");
+					twopb.style.visibility = "visible";
+					//>按钮
+					var twocon = document.getElementById("twoContinue");
+					twocon.style.visibility = "visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//<按钮
+					var twopb = document.getElementById("twoPlayback");
+					twopb.style.visibility = "hidden";
+					//>按钮
+					var twocon = document.getElementById("twoContinue");
+					twocon.style.visibility = "hidden";
+				}
+				
+				if(timeDisplay >= threeSessionStart && timeDisplay <= threeSessionEnd)
+				//回合三的时间段
+				{
+					//添加<>按钮
+					//<按钮
+					var threepb=document.getElementById("threePlayback");
+					threepb.style.visibility="visible";
+					//>按钮
+					var threecon=document.getElementById("threeContinue");
+					threecon.style.visibility="visible";
+				}
+				else
+				{
+					//不允许两个按钮出现
+					//<按钮
+					var threepb=document.getElementById("threePlayback");
+					threepb.style.visibility="hidden";
+					//>按钮
+					var threecon=document.getElementById("threeContinue");
+					threecon.style.visibility="hidden";
+				}
+				
+				if(timeDisplay>=417&&timeDisplay<=417.5)
+				//错误示范1和2播放结束
+				{
+					console.log("进入12回放界面");
+					videoTime.pause();
+					//跳转至可回放的界面
+					videoTime.currentTime=441;
+					
+				}
+				
+				if(timeDisplay>=439.5&&timeDisplay<=440)
+				//错误示范3和4播放结束
+				{
+					//跳转至可回放的界面
+					videoTime.currentTime=460;
+					videoTime.pause();
+				}
+				
+				if(timeDisplay>=440&&timeDisplay<=459)
+				//1、2的回放界面
+				{
+					//添加两个回放按钮
+					//第一个回放按钮
+					var w1=document.getElementById("wrong1");
+					w1.style.visibility="visible";
+					//第二个回放按钮
+					var w2=document.getElementById("wrong2");
+					w2.style.visibility="visible";
+					//next按钮
+					var w12next=document.getElementById("wrong12next");
+					w12next.style.visibility="visible";
+				}
+				else
+				{
+					//隐藏两个回放按钮
+					//第一个回放按钮
+					var w1=document.getElementById("wrong1");
+					w1.style.visibility="hidden";
+					//第二个回放按钮
+					var w2=document.getElementById("wrong2");
+					w2.style.visibility="hidden";
+					//next按钮
+					var w12next=document.getElementById("wrong12next");
+					w12next.style.visibility="hidden";
+				}
+				
+				if(timeDisplay>=459.5&&timeDisplay<=479.5)
+				//3、4的回放界面
+				{
+					//添加两个回放按钮
+					//第一个回放按钮
+					var w3=document.getElementById("wrong3");
+					w3.style.visibility="visible";
+					//第二个回放按钮
+					var w4=document.getElementById("wrong4");
+					w4.style.visibility="visible";
+					//next按钮
+					var w34next=document.getElementById("wrong34next");
+					w34next.style.visibility="visible";
+				}
+				else
+				{
+					//隐藏两个回放按钮
+					//第一个回放按钮
+					var w3=document.getElementById("wrong3");
+					w3.style.visibility="hidden";
+					//第二个回放按钮
+					var w4=document.getElementById("wrong4");
+					w4.style.visibility="hidden";
+					//next按钮
+					var w34next=document.getElementById("wrong34next");
+					w34next.style.visibility="hidden";
+				}
+				
+				if(timeDisplay>=wrong1backend-0.5&&timeDisplay<=wrong1backend)
+				{
+					console.log("1end");
+					//第一个错误示范播放结束
+					videoTime.pause();
+				}
+				
+				if(timeDisplay>=wrong2backend-0.5&&timeDisplay<=wrong2backend)
+				{
+					//第2个错误示范播放结束
+					videoTime.pause();
+				}
+				
+				if(timeDisplay>=wrong3backend-0.5&&timeDisplay<=wrong3backend)
+				{
+					//第3个错误示范播放结束
+					videoTime.pause();
+				}
+				
+				if(timeDisplay>=479&&timeDisplay<=479.5)
+				{
+					//第4个错误示范播放结束
+					videoTime.pause();
+				}
+				
+				if(timeDisplay>=483&&timeDisplay<=485)
+				{
+					//最终界面
+					videoTime.pause();
+					//添加两个按钮
+					//结束
+					var f=document.getElementById("finish");
+					f.style.visibility="visible";
+					//跟练
+					var p=document.getElementById("practice");
+					p.style.visibility="visible";
+				}
+				else{
+					//不允许出现两个按钮
+					//结束
+					var f=document.getElementById("finish");
+					f.style.visibility="hidden";
+					//跟练
+					var p=document.getElementById("practice");
+					p.style.visibility="hidden";
+				}
+				
+
+				if(timeDisplay >= 1000 && timeDisplay <= 362.5)
+				//课后问题一的时间节点
+				{
+					//首先暂停视频
+					videoTime.pause();
+
+
+					//出现几个选项
+					var button_1 = document.getElementById("B_1");
+					button_1.style.visibility = "visible";
+
+					var button_2 = document.getElementById("B_2");
+					button_2.style.visibility = "visible";
+
+					var button_3 = document.getElementById("B_3");
+					button_3.style.visibility = "visible";
+
+					var button_4 = document.getElementById("B_4");
+					button_4.style.visibility = "visible";
+
+					var button_5 = document.getElementById("B_5");
+					button_5.style.visibility = "visible";
+
+					var button_6 = document.getElementById("B_6");
+					button_6.style.visibility = "visible";
+
+					var button_7 = document.getElementById("nextQ");
+					button_7.style.visibility = "visible";
+					
+					//出现填空的按钮
+					var blank_1=document.getElementById("Q1Blank1_before");
+					blank_1.style.visibility = "visible";
+					
+					var blank_2=document.getElementById("Q1Blank2_before");
+					blank_2.style.visibility = "visible";
+					
+					var blank_3=document.getElementById("Q1Blank3_before");
+					blank_3.style.visibility = "visible";
+					
+					var blank_4=document.getElementById("Q1Blank4_before");
+					blank_4.style.visibility = "visible";
+					
+					var blank_5=document.getElementById("Q1Blank5_before");
+					blank_5.style.visibility = "visible";
+					
+					var blank_6=document.getElementById("Q1Blank6_before");
+					blank_6.style.visibility = "visible";
+				}
+			}, false);
+
+			function Q1true() {
+				//选择了知道强化物
+				//让两个按钮消失
+				var firstYesBtn = document.getElementById("firstYes");
+				firstYesBtn.style.visibility = "hidden";
+				//no按钮
+				var firstNoBtn = document.getElementById("firstNo");
+				firstNoBtn.style.visibility = "hidden";
+				//进入第一个问题【是否了解强化物】选择【了解】 跳过强化物知识区
+				videoTime.currentTime = firstQyesTo;
+				videoTime.play();
+			}
+
+			function Q1false() {
+				//选择了知道强化物
+				//让两个按钮消失
+				var firstYesBtn = document.getElementById("firstYes");
+				firstYesBtn.style.visibility = "hidden";
+				//no按钮
+				var firstNoBtn = document.getElementById("firstNo");
+				firstNoBtn.style.visibility = "hidden";
+				//进入第一个问题【是否了解强化物】选择【不了解】 进入强化物知识区
+				videoTime.currentTime = reinfoStart;
+				videoTime.pause();
+			}
+			
+			function reinfoNextTo(){
+				//强化物知识区点击next
+				videoTime.currentTime = firstQyesTo;
+				videoTime.play();
+			}
+
+			function Q2true() {
+				//选择了知道ABC
+				//让两个按钮消失
+				var secondYesBtn = document.getElementById("secondYes");
+				secondYesBtn.style.visibility = "hidden";
+				//no按钮
+				var secondNoBtn = document.getElementById("secondNo");
+				secondNoBtn.style.visibility = "hidden";
+				//进入第二个问题【是否了解ABC】选择【了解】 跳过正强化知识区
+				videoTime.currentTime = secondQyesTo;
+				videoTime.play();
+			}
+
+			function Q2false() {
+				//选择了不知道ABC
+				//让两个按钮消失
+				var secondYesBtn = document.getElementById("secondYes");
+				secondYesBtn.style.visibility = "hidden";
+				//no按钮
+				var secondNoBtn = document.getElementById("secondNo");
+				secondNoBtn.style.visibility = "hidden";
+				//进入第二个问题【是否了解ABC】选择【不了解】 进入正强化知识区
+				videoTime.currentTime = positiveStart;
+				videoTime.pause();
+			}
+			
+			function positiveNextTo(){
+				//正强化物知识区点击next
+				videoTime.currentTime = secondQyesTo;
+				videoTime.play();
+			}
+
+			function Q3true() {
+				//选择了知道DTT
+				//让两个按钮消失
+				var thirdYesBtn = document.getElementById("thirdYes");
+				thirdYesBtn.style.visibility = "hidden";
+				//no按钮
+				var thirdNoBtn = document.getElementById("thirdNo");
+				thirdNoBtn.style.visibility = "hidden";
+				//进入第三个问题【是否了解DTT】选择【了解】 跳了区分强化知识区
+				videoTime.currentTime = thirdQyesTo;
+				videoTime.play();
+			}
+
+			function Q3false() {
+				//选择了不知道DTT
+				//让两个按钮消失
+				var thirdYesBtn = document.getElementById("thirdYes");
+				thirdYesBtn.style.visibility = "hidden";
+				//no按钮
+				var thirdNoBtn = document.getElementById("thirdNo");
+				thirdNoBtn.style.visibility = "hidden";
+				//进入第三个问题【是否了解DTT】选择【不了解】 进入区分强化知识区
+				videoTime.currentTime = classStart;
+				videoTime.play();
+			}
+			
+			function classNextTo(){
+				//正强化物知识区点击next
+				videoTime.currentTime = thirdQyesTo;
+				videoTime.play();
+			}
+
+			
+
+			function backTest() {
+				//在试探回合选择了<
+				//重新播放试探回合
+				videoTime.currentTime = testSessionStart;
+				videoTime.play();
+			}
+
+			function conTest() {
+				//在试探回合选择了>
+				//重新播放试探回合
+				videoTime.currentTime = oneSessionStart;
+				videoTime.play();
+			}
+
+			function backOne() {
+				//在试探回合选择了<
+				//重新播放试探回合
+				videoTime.currentTime = testSessionStart;
+				videoTime.play();
+			}
+
+			function conOne() {
+				//在试探回合选择了>
+				//重新播放试探回合
+				videoTime.currentTime = twoSessionStart;
+				videoTime.play();
+			}
+			
+			function backTwo() {
+				//在试探回合选择了<
+				//重新播放试探回合
+				videoTime.currentTime = oneSessionStart;
+				videoTime.play();
+			}
+
+			function conTwo() {
+				//在试探回合选择了>
+				//重新播放试探回合
+				videoTime.currentTime = threeSessionStart;
+				videoTime.play();
+			}
+			
+			function backThree() {
+				//在试探回合选择了<
+				//重新播放试探回合
+				videoTime.currentTime = twoSessionStart;
+				videoTime.play();
+			}
+
+			function conThree() {
+				//在试探回合选择了>
+				//重新播放试探回合
+				videoTime.currentTime = attentionStart;
+				videoTime.play();
+			}
+			
+			function wrong1Back()
+			{
+				//回放第一个
+				videoTime.currentTime=wrong1backstart;
+				videoTime.play();
+			}
+			
+			function wrong2Back()
+			{
+				//回放第2个
+				videoTime.currentTime=wrong2backstart;
+				videoTime.play();
+			}
+			
+			function wrong3Back()
+			{
+				//回放第一个
+				videoTime.currentTime=wrong3backstart;
+				videoTime.play();
+			}
+			
+			function wrong4Back()
+			{
+				//回放第一个
+				videoTime.currentTime=wrong4backstart;
+				videoTime.play();
+			}
+			
+			function conWrong12()
+			{
+				//从回放12的界面跳转至播放34的界面
+				videoTime.currentTime=wrong34start;
+				videoTime.play();
+			}
+			
+			function conWrong34()
+			{
+				//从回放12的界面跳转至结束
+				videoTime.currentTime=480;
+				videoTime.play();
+			}
+
+			
+
+			function nextQuestion() {
+				//跳转到课后问题二的时间节点
+				videoTime.currentTime = 364.5;
+				videoTime.play();
+
+				//隐藏图标
+				var button_1 = document.getElementById("B_1");
+				button_1.style.visibility = "hidden";
+
+				var button_2 = document.getElementById("B_2");
+				button_2.style.visibility = "hidden";
+
+				var button_3 = document.getElementById("B_3");
+				button_3.style.visibility = "hidden";
+
+				var button_4 = document.getElementById("B_4");
+				button_4.style.visibility = "hidden";
+
+				var button_5 = document.getElementById("B_5");
+				button_5.style.visibility = "hidden";
+
+				var button_6 = document.getElementById("B_6");
+				button_6.style.visibility = "hidden";
+
+				var button_7 = document.getElementById("nextQ");
+				button_7.style.visibility = "hidden";
+			}
+
+			function HiddenAllSquare() {
+				var p = document.getElementById("Q1Blank1_after");
+				p.style.visibility = "hidden";
+				
+				p = document.getElementById("Q1Blank2_after");
+				p.style.visibility = "hidden";
+				
+				p = document.getElementById("Q1Blank3_after");
+				p.style.visibility = "hidden";
+				
+				p = document.getElementById("Q1Blank4_after");
+				p.style.visibility = "hidden";
+				
+				p = document.getElementById("Q1Blank5_after");
+				p.style.visibility = "hidden";
+				
+				p = document.getElementById("Q1Blank6_after");
+				p.style.visibility = "hidden";
+			}
+
+			function clickQ1_1() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示虚线框
+				var p = document.getElementById("Q1Blank1_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_1");
+				p.style.visibility = "visible";
+			}
+			
+			function clickQ1_2() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示虚线框
+				var p = document.getElementById("Q1Blank2_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_2");
+				p.style.visibility = "visible";
+			}
+			
+			function clickQ1_3() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示第一格的虚线框
+				var p = document.getElementById("Q1Blank3_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_3");
+				p.style.visibility = "visible";
+			}
+			
+			function clickQ1_4() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示第一格的虚线框
+				var p = document.getElementById("Q1Blank4_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_4");
+				p.style.visibility = "visible";
+			}
+			
+			function clickQ1_5() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示第一格的虚线框
+				var p = document.getElementById("Q1Blank5_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_5");
+				p.style.visibility = "visible";
+			}
+			
+			function clickQ1_6() {
+				//先让所有的虚线框都
+				HiddenAllSquare();
+
+				//显示第一格的虚线框
+				var p = document.getElementById("Q1Blank6_after");
+				p.style.visibility = "visible";
+				//显示文本框
+				p = document.getElementById("Q1_text_6");
+				p.style.visibility = "visible";
+			}
+		</script>
+
+	</body>
